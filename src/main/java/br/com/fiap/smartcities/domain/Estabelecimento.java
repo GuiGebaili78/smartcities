@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,21 +32,27 @@ public class Estabelecimento {
 	@Column(name = "endereço_estabelecimento", length = 255)
 	private String endereco;
 
+	@ManyToOne
+	@JoinColumn(name = "id_tipo_estabelecimento")
+	private EstabelecimentoTipo categoria;
+
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dh_criacao")
 	private Calendar dataCriacao;
 
-	public Estabelecimento() {
-		super();
-	}
-
-	public Estabelecimento(Integer id, String nome, String endereco, Calendar dataCriacao) {
+	public Estabelecimento(Integer id, String nome, String endereco, EstabelecimentoTipo categoria,
+			Calendar dataCriacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
+		this.categoria = categoria;
 		this.dataCriacao = dataCriacao;
+	}
+
+	public Estabelecimento() {
+		super();
 	}
 
 	public Integer getId() {
@@ -71,6 +79,15 @@ public class Estabelecimento {
 		this.endereco = endereco;
 	}
 
+	public EstabelecimentoTipo getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(EstabelecimentoTipo categoria) {
+	    this.categoria = categoria;
+	}
+
+
 	public Calendar getDataCriacao() {
 		return dataCriacao;
 	}
@@ -79,4 +96,5 @@ public class Estabelecimento {
 		this.dataCriacao = dataCriacao;
 	}
 
+	
 }

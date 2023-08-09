@@ -3,25 +3,20 @@ package br.com.fiap.smartcities.test;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-import br.com.fiap.smartcities.domain.Estabelecimento;
 import br.com.fiap.smartcities.domain.EstabelecimentoTipo;
 
-public class EstabelecimentoCadastrar {
+public class EstabelecimentoTipoCadastrar {
 
 	public static void main(String[] args) {
 		EntityManager em = null;
 		try {
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
 			em.getTransaction().begin();
-
-			Estabelecimento estab = new Estabelecimento();
-			EstabelecimentoTipo nometipo = em.find(EstabelecimentoTipo.class, 1);
-
-			estab.setNome("Bar do Alemão");
-			estab.setEndereco("Av. Consolação, 1000");			
-			estab.setCategoria(nometipo.getTipo());
-
-			em.merge(estab);
+			EstabelecimentoTipo tipoestab = new EstabelecimentoTipo();
+			//tipoestab.setTipo("Atacado");
+			tipoestab.setTipo("Varejo");
+			//tipoestab.setTipo("Distribuidor");
+			em.merge(tipoestab);
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
