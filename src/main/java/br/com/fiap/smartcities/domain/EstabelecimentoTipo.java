@@ -1,5 +1,7 @@
 package br.com.fiap.smartcities.domain;
 
+
+
 import java.util.Calendar;
 
 import javax.persistence.Column;

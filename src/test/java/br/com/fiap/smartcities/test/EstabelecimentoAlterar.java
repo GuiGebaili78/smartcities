@@ -11,13 +11,13 @@ public class EstabelecimentoAlterar {
 		EntityManager em = null;
 		try {
 
-			int idProcurado = 2;
+			int idProcurado = 3;
 
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
 			Estabelecimento est = em.find(Estabelecimento.class, idProcurado);
 
 			em.getTransaction().begin();
-			est.setNome("Bar da Vila");
+			est.setNome("Bar do Antonio");
 			em.getTransaction().commit();
 
 		} catch (Exception e) {

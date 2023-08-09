@@ -1,5 +1,7 @@
 package br.com.fiap.smartcities.domain;
 
+
+
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -34,25 +36,26 @@ public class Estabelecimento {
 
 	@ManyToOne
 	@JoinColumn(name = "id_tipo_estabelecimento")
-	private EstabelecimentoTipo categoria;
+	private EstabelecimentoTipo tipo;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dh_criacao")
 	private Calendar dataCriacao;
 
-	public Estabelecimento(Integer id, String nome, String endereco, EstabelecimentoTipo categoria,
-			Calendar dataCriacao) {
+
+
+	public Estabelecimento() {
+		super();
+	}
+
+	public Estabelecimento(Integer id, String nome, String endereco, EstabelecimentoTipo tipo, Calendar dataCriacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
-		this.categoria = categoria;
+		this.tipo = tipo;
 		this.dataCriacao = dataCriacao;
-	}
-
-	public Estabelecimento() {
-		super();
 	}
 
 	public Integer getId() {
@@ -79,14 +82,13 @@ public class Estabelecimento {
 		this.endereco = endereco;
 	}
 
-	public EstabelecimentoTipo getCategoria() {
-		return categoria;
+	public EstabelecimentoTipo getTipo() {
+		return tipo;
 	}
 
-	public void setCategoria(EstabelecimentoTipo categoria) {
-	    this.categoria = categoria;
+	public void setTipo(EstabelecimentoTipo tipo) {
+		this.tipo = tipo;
 	}
-
 
 	public Calendar getDataCriacao() {
 		return dataCriacao;

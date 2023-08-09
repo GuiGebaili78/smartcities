@@ -10,7 +10,7 @@ public class EstabelecimentoRemover {
 	public static void main(String[] args) {
 		EntityManager em = null;
 		try {
-	int idProcurado = 2;
+	int idProcurado = 7;
 			
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
 			Estabelecimento estab = em.find(Estabelecimento.class, idProcurado);

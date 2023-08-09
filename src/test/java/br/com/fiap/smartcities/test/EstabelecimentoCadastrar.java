@@ -17,9 +17,9 @@ public class EstabelecimentoCadastrar {
 			Estabelecimento estab = new Estabelecimento();
 			EstabelecimentoTipo nometipo = em.find(EstabelecimentoTipo.class, 1);
 
-			estab.setNome("Bar do Alemão");
-			estab.setEndereco("Av. Consolação, 1000");			
-			estab.setCategoria(nometipo.getTipo());
+			estab.setNome("Bar do Jucelino");
+			estab.setEndereco("Av. Paulista, 500");
+			estab.setTipo(nometipo);
 
 			em.merge(estab);
 			em.getTransaction().commit();

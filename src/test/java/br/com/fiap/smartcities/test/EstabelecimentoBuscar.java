@@ -10,7 +10,7 @@ public class EstabelecimentoBuscar {
 		EntityManager em = null;
 		try {
 
-			int idProcurado = 2;
+			int idProcurado = 8;
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
 
 			Estabelecimento estab = em.find(Estabelecimento.class, idProcurado);
