@@ -3,21 +3,21 @@ package br.com.fiap.smartcities.test;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-import br.com.fiap.smartcities.domain.Estabelecimento;
+import br.com.fiap.smartcities.domain.Loja;
 
-public class EstabelecimentoAlterar {
+public class LojaAlterar {
 
 	public static void main(String[] args) {
 		EntityManager em = null;
 		try {
 
-			int idProcurado = 3;
+			int idProcurado = 1;
 
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
-			Estabelecimento est = em.find(Estabelecimento.class, idProcurado);
+			Loja est = em.find(Loja.class, idProcurado);
 
 			em.getTransaction().begin();
-			est.setNome("Bar do Antonio");
+			est.setNome("Dia");
 			em.getTransaction().commit();
 
 		} catch (Exception e) {

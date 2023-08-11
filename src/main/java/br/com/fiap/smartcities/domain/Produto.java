@@ -24,14 +24,17 @@ public class Produto {
 	@Column(name = "id_produto")
 	private Integer id;
 
-	@Column(name = "nome_produto", length = 50)
+	@Column(name = "nom_produto", length = 50)
 	private String nome;
 
-	@Column(name = "ds_categoria", length = 50)
+	@Column(name = "dsc_categoria", length = 50)
 	private String categoria;
 
-	@Column(name = "valor", precision = 10, scale = 2)
+	@Column(name = "vlr_unit", precision = 10, scale = 2)
 	private double valor;
+
+	@Column(name = "dta_validade")
+	private Calendar validade;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -42,12 +45,13 @@ public class Produto {
 		super();
 	}
 
-	public Produto(Integer id, String nome, String categoria, double valor, Calendar dataCriacao) {
+	public Produto(Integer id, String nome, String categoria, double valor, Calendar validade, Calendar dataCriacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.valor = valor;
+		this.validade = validade;
 		this.dataCriacao = dataCriacao;
 	}
 
@@ -81,6 +85,14 @@ public class Produto {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	public Calendar getValidade() {
+		return validade;
+	}
+
+	public void setValidade(Calendar validade) {
+		this.validade = validade;
 	}
 
 	public Calendar getDataCriacao() {

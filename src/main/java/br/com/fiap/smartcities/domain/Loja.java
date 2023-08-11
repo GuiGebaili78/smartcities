@@ -1,7 +1,5 @@
 package br.com.fiap.smartcities.domain;
 
-
-
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -19,37 +17,35 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "tbl_estabelecimento")
-public class Estabelecimento {
+@Table(name = "tbl_loja")
+public class Loja {
 
 	@Id
-	@SequenceGenerator(name = "estabelecimento", sequenceName = "sq_tbl_estabelecimento", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estabelecimento")
-	@Column(name = "id_estabelecimento")
+	@SequenceGenerator(name = "loja", sequenceName = "sq_tbl_loja", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loja")
+	@Column(name = "id_loja")
 	private Integer id;
 
-	@Column(name = "nome_estabelecimento", length = 50)
+	@Column(name = "nom_loja", length = 50)
 	private String nome;
 
-	@Column(name = "endereço_estabelecimento", length = 255)
+	@Column(name = "end_loja", length = 255)
 	private String endereco;
 
 	@ManyToOne
-	@JoinColumn(name = "id_tipo_estabelecimento")
-	private EstabelecimentoTipo tipo;
+	@JoinColumn(name = "id_tipo_loja")
+	private TipoLoja tipo;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dh_criacao")
 	private Calendar dataCriacao;
 
-
-
-	public Estabelecimento() {
+	public Loja() {
 		super();
 	}
 
-	public Estabelecimento(Integer id, String nome, String endereco, EstabelecimentoTipo tipo, Calendar dataCriacao) {
+	public Loja(Integer id, String nome, String endereco, TipoLoja tipo, Calendar dataCriacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -82,11 +78,11 @@ public class Estabelecimento {
 		this.endereco = endereco;
 	}
 
-	public EstabelecimentoTipo getTipo() {
+	public TipoLoja getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(EstabelecimentoTipo tipo) {
+	public void setTipo(TipoLoja tipo) {
 		this.tipo = tipo;
 	}
 
@@ -98,5 +94,4 @@ public class Estabelecimento {
 		this.dataCriacao = dataCriacao;
 	}
 
-	
 }

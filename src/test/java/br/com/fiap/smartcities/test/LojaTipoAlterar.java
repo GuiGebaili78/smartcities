@@ -3,35 +3,33 @@ package br.com.fiap.smartcities.test;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-import br.com.fiap.smartcities.domain.Estabelecimento;
+import br.com.fiap.smartcities.domain.Loja;
 
-public class EstabelecimentoRemover {
+public class LojaTipoAlterar {
 
 	public static void main(String[] args) {
 		EntityManager em = null;
 		try {
-	int idProcurado = 7;
-			
+
+			int idProcurado = 1;
+
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
-			Estabelecimento estab = em.find(Estabelecimento.class, idProcurado);
-			
-			
+			Loja est = em.find(Loja.class, idProcurado);
+
 			em.getTransaction().begin();
-			em.remove(estab);
+			est.setNome("Atacado");
 			em.getTransaction().commit();
-			
-			
+
 		} catch (Exception e) {
-			e.printStackTrace();
 			if (em != null && em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
+			e.printStackTrace();
 		} finally {
 			if (em != null) {
 				em.close();
 			}
+			
 		}
-		
 	}
-
 }

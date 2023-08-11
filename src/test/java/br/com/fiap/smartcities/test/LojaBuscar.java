@@ -2,18 +2,18 @@ package br.com.fiap.smartcities.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import br.com.fiap.smartcities.domain.Estabelecimento;
+import br.com.fiap.smartcities.domain.Loja;
 
-public class EstabelecimentoBuscar {
+public class LojaBuscar {
 
 	public static void main(String[] args) {
 		EntityManager em = null;
 		try {
 
-			int idProcurado = 8;
+			int idProcurado = 1;
 			em = Persistence.createEntityManagerFactory("smartcities-orm").createEntityManager();
 
-			Estabelecimento estab = em.find(Estabelecimento.class, idProcurado);
+			Loja estab = em.find(Loja.class, idProcurado);
 
 			System.out.println("Estabelecimento encontrado: " + estab);
 
