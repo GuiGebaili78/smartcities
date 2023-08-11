@@ -5,7 +5,7 @@ import javax.persistence.Persistence;
 
 import br.com.fiap.smartcities.domain.TipoLoja;
 
-public class LojaTipoCadastrar {
+public class TipoLojaCadastrar {
 
 	public static void main(String[] args) {
 		EntityManager em = null;
