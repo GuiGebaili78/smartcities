@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,6 +32,9 @@ public class Loja {
 
 	@Column(name = "end_loja", length = 255)
 	private String endereco;
+	
+	@OneToOne(mappedBy = "loja")
+	private Operacao operacao;
 
 	@ManyToOne
 	@JoinColumn(name = "id_tipo_loja")

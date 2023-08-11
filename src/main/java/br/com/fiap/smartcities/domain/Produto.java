@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -35,6 +36,9 @@ public class Produto {
 
 	@Column(name = "dta_validade")
 	private Calendar validade;
+
+	@OneToOne(mappedBy = "produto")
+	private Operacao operacao;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)

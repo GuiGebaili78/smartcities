@@ -40,15 +40,15 @@ public class Operacao {
 	private Calendar entrega;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_loja", referencedColumnName = "id")
+	@JoinColumn(name = "id_loja")
 	private Loja loja;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_produto", referencedColumnName = "id")
+	@JoinColumn(name = "id_produto")
 	private Produto produto;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_distribuidor", referencedColumnName = "id")
+	@JoinColumn(name = "id_distribuidor")
 	private Loja distribuidor;
 
 	@CreationTimestamp
