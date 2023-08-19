@@ -42,7 +42,7 @@ public class Loja {
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dh_criacao")
+	@Column(name = "dth_criacao")
 	private Calendar dataCriacao;
 
 	public Loja() {

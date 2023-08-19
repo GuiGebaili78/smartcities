@@ -48,12 +48,12 @@ public class Operacao {
 	private Produto produto;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_distribuidor")
+	@JoinColumn(name = "id_distrib")
 	private Loja distribuidor;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dh_criacao")
+	@Column(name = "dth_criacao")
 	private Calendar dataCriacao;
 
 	public Operacao() {

@@ -24,12 +24,12 @@ public class TipoLoja {
 	@Column(name = "id_tipo_loja")
 	private Integer id;
 
-	@Column(name = "tipo_loja", length = 50)
+	@Column(name = "tip_loja", length = 50)
 	private String tipo;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dh_criacao")
+	@Column(name = "dth_criacao")
 	private Calendar dataCriacao;
 
 	public TipoLoja() {

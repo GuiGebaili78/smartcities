@@ -16,19 +16,19 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "tbl_distribuidor")
+@Table(name = "tbl_distrib")
 public class Distribuidor {
 
 	@Id
-	@SequenceGenerator(name = "distribuidor", sequenceName = "sq_tbl_distribuidor", allocationSize = 1)
+	@SequenceGenerator(name = "distribuidor", sequenceName = "sq_tbl_distrib", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "distribuidor")
-	@Column(name = "id_distribuidor")
+	@Column(name = "id_distrib")
 	private Integer id;
 
-	@Column(name = "nom_distribuidor", length = 100)
+	@Column(name = "nom_distrib", length = 100)
 	private String nome;
 
-	@Column(name = "end_distribuidor", length = 255)
+	@Column(name = "end_distrib", length = 255)
 	private String endereco;
 	
 	@OneToOne(mappedBy = "distribuidor")
@@ -36,7 +36,7 @@ public class Distribuidor {
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dh_criacao")
+	@Column(name = "dth_criacao")
 	private Calendar dataCriacao;
 
 	public Distribuidor() {
